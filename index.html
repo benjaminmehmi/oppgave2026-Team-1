@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTO - Tech Conference 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>EVENTO</h1>
+            </div>
+            
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#venues">Venues</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="event-hero">
+            <div class="event-container">
+                <div id="event-name">
+                    <h2>Tech Conference 2025</h2>
+                </div>
+                <div id="event-details">
+                    <p>📅 March 15-17, 2025</p> 📍 Oslo Congress Center 🎤 12 Speakers 💰 From €299</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="register-section" class="cards-section">
+            <div id="register-card" class="card">
+                <button class="btn-primary">Register</button>
+                
+                <p>Ticket Type</p>
+                <div class="radio-group">
+                    <input type="radio" id="standard" name="ticket" value="Standard"> 
+                    <label for="standard">Standard</label><br>
+                    <input type="radio" id="vip" name="ticket" value="VIP"> 
+                    <label for="vip">VIP</label><br>
+                    <input type="radio" id="premium" name="ticket" value="Premium"> 
+                    <label for="premium">Premium</label><br>
+                </div>
+                
+                <p>Quantity</p>
+                <div class="quantity-selector">
+                    <button class="btn-sm">-</button> 
+                    <span id="quantity">1</span> 
+                    <button class="btn-sm">+</button>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms"> 
+                    <label for="terms">I agree to terms*</label>
+                </div>
+                
+                <button class="btn-primary">Submit Registration</button>
+            </div>
+
+            <div id="about-card" class="card">
+                <h2>About the event</h2>
+                <p>Join us for the most exciting tech conference of the year. Connect with industry leaders, learn about the latest technologies, and network with professionals from around the world.</p>
+                <ul>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
