@@ -20,9 +20,17 @@
 }
 
 body {
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
     line-height: 1.6;
     color: #333;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main";
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
 }
 
 /* Header Styles */
@@ -32,14 +40,14 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100%;
+    grid-area: header;
 }
 
 .header-container {
-    display: grid;
-    grid-template-areas: "logo nav";
-    grid-template-columns: 1fr 1fr;
-    margin: 0 auto;
-    padding: var(--spacing) ;
+    display: flex;
+    width: 100%;
+    padding: var(--spacing) 2rem;
 }
 
 /*Nav Bar*/
@@ -51,27 +59,51 @@ body {
     column-gap: var(--spacing-xl);
     background: white;
     border-bottom: 1px solid silver;
-    
-    
+    width: 100%;
 }
 
 .nav-logo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
     font-weight: bold;
     font-size: 1.5rem;
+}
+
+.nav-logo svg {
+    width: 34px;
+    height: 34px;
+    display: block;
+}
+
+.nav-logo h1 {
+    font-size: 2.15rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: var(--spacing);
+    gap: 3rem;
 }
 
 .nav-menu a {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 500;
+    transition: var(--transition);
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    font-size: 1.3rem;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color-hover);
+    transform: translateX(4px);
+    border-bottom-color: var(--primary-color-hover);
 }
 
 .menu-toggle {
@@ -116,14 +148,47 @@ body {
     padding-left: var(--spacing);
 }
 
+.profile-button, .user-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-button:hover, .user-button:hover {
+    transform: scale(1.1);
+}
+
+.profile-button:active, .user-button:active {
+    transform: scale(0.95);
+}
+
+.profile-button svg, .user-button svg {
+    transition: var(--transition);
+}
+
+.profile-button:hover svg, .user-button:hover svg {
+    color: var(--primary-color);
+}
+
 /* Main Content */
 main {
     display: grid;
+    grid-area: main;
     grid-template-areas:
         "event-hero event-hero"
         "register sidebar";
     grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
+    min-height: 0; /* allow body grid to control overall height */
+}
+
+/* Ensure grid items stretch to equal heights */
+main {
+    align-items: stretch;
 }
 
 #event-hero {
@@ -144,6 +209,10 @@ main {
     background: rgb(241, 241, 241);
     gap: 2rem;
     padding: 2rem;
+}
+
+#register-section {
+    height: 100%;
 }
 
 .event-container {
@@ -172,6 +241,13 @@ main {
     flex: 1;
 }
 
+/* Make the register card fill its grid cell and use flex layout so it can match the sidebar card height */
+#register-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 #register-card form .form-group {
     display: flex;
     flex-direction: column; /* stack label above input */
@@ -181,6 +257,23 @@ main {
 #register-card form .form-group input,
 #register-card form .form-group select {
     width: 100%; /* make inputs full width inside stacked layout */
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+#register-card form .form-group input:hover,
+#register-card form .form-group select:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+#register-card form .form-group input:focus,
+#register-card form .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 #register-card h3 {
@@ -202,16 +295,33 @@ main {
 
 .radio-group, .checkbox-group {
     margin: 1rem 0;
+    display: flex;
+    align-items: center;
 }
 
 .radio-group label, .checkbox-group label {
     margin-left: 0.5rem;
     cursor: pointer;
+    transition: var(--transition);
+}
+
+.radio-group label:hover, .checkbox-group label:hover {
+    color: var(--primary-color);
 }
 
 .radio-group input[type="radio"],
 .checkbox-group input[type="checkbox"] {
     cursor: pointer;
+    transition: var(--transition);
+    accent-color: var(--primary-color);
+    width: 18px;
+    height: 18px;
+}
+
+.radio-group input[type="radio"]:hover,
+.checkbox-group input[type="checkbox"]:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 4px rgba(37, 99, 235, 0.6));
 }
 
 /* Card Styles */
@@ -240,11 +350,17 @@ main {
 
 .btn-primary:hover {
     background-color: var(--primary-color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
 }
 
 .btn-sm {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     padding: 0;
     background-color: #007bff;
     color: white;
@@ -257,6 +373,11 @@ main {
 
 .btn-sm:hover {
     background-color: var(--primary-color-hover);
+    transform: scale(1.05);
+}
+
+.btn-sm:active {
+    transform: scale(0.98);
 }
 
 /* About Card */
@@ -294,6 +415,26 @@ main {
     gap: 1.5rem;
 
     background-color: #f4f6f8;
+}
+
+/* Make sidebar a column flex container so its first card can stretch to match the register card */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Let the first sidebar card (About the Event) take remaining height to match register card */
+.sidebar-card:first-child {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure inner content of the first sidebar card grows correctly */
+.sidebar-card:first-child > p,
+.sidebar-card:first-child > ul {
+    flex: 1 1 auto;
 }
 
 /*/ Cards /*/
@@ -339,6 +480,7 @@ main {
     display: grid;
     justify-items: center;
     font-size: 0.85rem;
+    position: relative;
 }
 
 .speaker-photo {
@@ -348,19 +490,74 @@ main {
     background-color: #dbe7f5;
 }
 
+.favorite-checkbox {
+    display: none;
+}
+
+.favorite-heart {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #d1d5db;
+    transition: var(--transition);
+    margin-top: 0.3rem;
+}
+
+.favorite-checkbox:checked + .favorite-heart {
+    color: #ef4444;
+    transform: scale(1.2);
+}
+
+.favorite-heart:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+}
+
 /*/ Schedule /*/
 .schedule-list {
     padding-left: 1.2rem;
+}
+
+/* Spinner and Quantity Input Styles */
+.spinner {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: var(--transition);
+    width: fit-content;
+}
+
+.spinner:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+#quantity {
+    flex: 0;
+    border: none;
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+    transition: var(--transition);
+    width: 50px;
+}
+
+#quantity:hover, #quantity:focus {
+    background-color: #f0f4ff;
+    outline: none;
 }
 
 .agenda-link {
     font-weight: bold;
     text-decoration: none;
     color: #2f80ed;
+    transition: var(--transition);
+    display: inline-block;
 }
 
 .agenda-link:hover {
     text-decoration: underline;
+    transform: translateX(4px);
 }
 
 /*/ =========================*/

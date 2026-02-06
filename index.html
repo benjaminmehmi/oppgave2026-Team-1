@@ -90,24 +90,30 @@
 
             <fieldset>
                 <legend>Ticket Type</legend>
-                <input type="radio" id="standard" name="ticket" value="Standard">
-                <label for="standard">Standard</label><br>
-                <input type="radio" id="vip" name="ticket" value="VIP">
-                <label for="vip">VIP</label><br>
-                <input type="radio" id="premium" name="ticket" value="Premium">
-                <label for="premium">Premium</label><br>
+                <div class="radio-group">
+                    <input type="radio" id="standard" name="ticket" value="Standard">
+                    <label for="standard">Standard</label><br>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="vip" name="ticket" value="VIP">
+                    <label for="vip">VIP</label><br>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="premium" name="ticket" value="Premium">
+                    <label for="premium">Premium</label><br>
+                </div>
             </fieldset>
             <div class="spinner-field">
                 <label for="quantity">
                     Quantity
                 </label>
                 <div class="spinner">
-                    <button class="btn-sm" type="button"
+                        <button class="btn-sm" type="button"
                             title="Decrement ticket quantity">
-                    <span aria-hidden="true">
-              −
-            </span>
-                    </button>
+                        <span aria-hidden="true">
+                      −
+                    </span>
+                        </button>
 
                     <input id="quantity"
                            role="spinbutton"
@@ -164,9 +170,6 @@
 
             <section class="sidebar-card">
                 <h2>
-                    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                        <circle cx="10" cy="10" r="8" />
-                    </svg>
                     About the Event
                 </h2>
 
@@ -190,23 +193,26 @@
                     <li class="speaker">
                         <div class="speaker-photo"></div>
                         <span>Geir</span>
+                        <input type="checkbox" id="fav-geir" class="favorite-checkbox" aria-label="Favorite Geir">
+                        <label for="fav-geir" class="favorite-heart" aria-hidden="true">♥</label>
                     </li>
                     <li class="speaker">
                         <div class="speaker-photo"></div>
                         <span>Terje</span>
+                        <input type="checkbox" id="fav-terje" class="favorite-checkbox" aria-label="Favorite Terje">
+                        <label for="fav-terje" class="favorite-heart" aria-hidden="true">♥</label>
                     </li>
                     <li class="speaker">
                         <div class="speaker-photo"></div>
                         <span>Ole</span>
+                        <input type="checkbox" id="fav-ole" class="favorite-checkbox" aria-label="Favorite Ole">
+                        <label for="fav-ole" class="favorite-heart" aria-hidden="true">♥</label>
                     </li>
                 </ul>
             </section>
 
             <section class="sidebar-card">
                 <h2>
-                    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                        <rect x="4" y="4" width="12" height="12" />
-                    </svg>
                     Schedule Highlights
                 </h2>
 
