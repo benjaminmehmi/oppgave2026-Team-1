@@ -8,71 +8,72 @@
 </head>
 
 <body>
-<header class="header">
-    <div class="header-container">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-logo">
-                <svg
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                        aria-label="LogoIcon">
-                    <rect x="3" y="6" width="4" height="18" rx="1" fill="black"/>
-                    <rect x="10" y="3" width="4" height="24" rx="1" fill="gray"/>
-                    <rect x="17" y="8" width="4" height="17" rx="1" fill="silver"/>
-                </svg>
-                <h1>EVENTO</h1>
-            </div>
-
-            <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
-            <label for="menu-toggle" class="hamburger" aria-label="Open menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </label>
-            <ul class="nav-menu">
-                <li><a href="#events">Events</a></li>
-                <li><a href="#venues">Venues</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <!-- jag lagt till form och input text-->
-                <!--                <form class="search-bar">-->
-                <!--                    <input type="text"-->
-                <!--                           placeholder="Search for events"-->
-                <!--                           aria-label="Search for events"-->
-                <!--                    >-->
-                <!--                </form>-->
-
-                <div class="nav-extra">
-                    <button class="profile-button" aria-label="ProfileButton">
-                        <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"></circle>
-                            <line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" stroke-width="2"
-                                  stroke-linecap="round"></line>
-                        </svg>
-                    </button>
-                    <button class="user-button" aria-label="UserButton">
-                        <svg
-                                class="user-icon"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                        >
-
-                            <circle cx="12" cy="8" r="4"></circle>
-                            <path d="m4 20c0-4 4-6 8-6s8 2 8 6"></path>
-
-                        </svg>
-                    </button>
+    <header class="header">
+        <div class="header-container">
+            <a href="#main-content" class="skip-link">Skip to content</a>
+            <nav class="navbar" role="navigation" aria-label="Main navigation">
+                <div class="nav-logo">
+                    <svg
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            aria-label="LogoIcon">
+                        <rect x="3" y="6" width="4" height="18" rx="1" fill="black"/>
+                        <rect x="10" y="3" width="4" height="24" rx="1" fill="gray"/>
+                        <rect x="17" y="8" width="4" height="17" rx="1" fill="silver"/>
+                    </svg>
+                    <h1>EVENTO</h1>
                 </div>
-        </nav>
-    </div>
-</header>
+
+                <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
+                <label for="menu-toggle" class="hamburger" aria-label="Open menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </label>
+                <ul class="nav-menu">
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#venues">Venues</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <!-- jag lagt till form och input text-->
+                    <!--                <form class="search-bar">-->
+                    <!--                    <input type="text"-->
+                    <!--                           placeholder="Search for events"-->
+                    <!--                           aria-label="Search for events"-->
+                    <!--                    >-->
+                    <!--                </form>-->
+
+                    <div class="nav-extra">
+                        <button class="profile-button" aria-label="ProfileButton">
+                            <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"></circle>
+                                <line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round"></line>
+                            </svg>
+                        </button>
+                        <button class="user-button" aria-label="UserButton">
+                            <svg
+                                    class="user-icon"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                            >
+
+                                <circle cx="12" cy="8" r="4"></circle>
+                                <path d="m4 20c0-4 4-6 8-6s8 2 8 6"></path>
+
+                            </svg>
+                        </button>
+                    </div>
+            </nav>
+        </div>
+    </header>
 
 
-<main>
+<main id="main-content" tabindex="-1">
     <section id="event-hero">
         <div class="event-container">
             <div id="event-name">
@@ -132,10 +133,6 @@
                         stroke-linecap="round" />
                         <rect x="9" y="9.5" height="1" width="7.3" />
                     </svg> From €299</p>
-
-
-
-
             </div>
         </div>
     </section>
@@ -247,19 +244,62 @@
 
                 <ul class="speaker-list">
                     <li class="speaker">
-                        <div class="speaker-photo"></div>
+                        <div>
+                          <img class="speaker-photo" src="speaker1.jpg">
+                        </div>
                         <span>Geir</span>
-                        <label class="heart-button"></label>
+
+                        <label class="heart-button">
+                          <input type="radio" name="speaker">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                    2 5.42 4.42 3 7.5 3
+                                    9.24 3 10.91 3.81 12 5.08
+                                    13.09 3.81 14.76 3 16.5 3
+                                    19.58 3 22 5.42 22 8.5
+                                    22 12.28 18.6 15.36 13.45 20.04
+                                    L12 21.35z"></path>
+                          </svg>
+                        </label>
                     </li>
+
                     <li class="speaker">
-                        <div class="speaker-photo"></div>
+                        <div>
+                          <img class="speaker-photo" src="speaker4.jpg">
+                        </div>
                         <span>Terje</span>
-                        <label class="heart-button"></label>
+
+                        <label class="heart-button">
+                          <input type="radio" name="speaker">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                    2 5.42 4.42 3 7.5 3
+                                    9.24 3 10.91 3.81 12 5.08
+                                    13.09 3.81 14.76 3 16.5 3
+                                    19.58 3 22 5.42 22 8.5
+                                    22 12.28 18.6 15.36 13.45 20.04
+                                    L12 21.35z"></path>
+                          </svg>
+                        </label>
                     </li>
                     <li class="speaker">
-                        <div class="speaker-photo"></div>
+                        <div>
+                          <img class="speaker-photo" src="speaker3.jpg">
+                        </div>
                         <span>Ole</span>
-                        <label class="heart-button"></label>
+                        
+                        <label class="heart-button">
+                          <input type="radio" name="speaker">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                    2 5.42 4.42 3 7.5 3
+                                    9.24 3 10.91 3.81 12 5.08
+                                    13.09 3.81 14.76 3 16.5 3
+                                    19.58 3 22 5.42 22 8.5
+                                    22 12.28 18.6 15.36 13.45 20.04
+                                    L12 21.35z"></path>
+                          </svg>
+                        </label>
                     </li>
                 </ul>
             </section>
